@@ -168,7 +168,7 @@
 
 ### 本地编译
 
-安装 TeX Live/MacTeX，需包含 ctex、fontspec、mathspec、caption/subcaption、gbt7714 等依赖。Mac 可双击 `compile.command`；脚本会使用 latexmk 自动处理多轮编译，生成根目录的 `main.pdf`，中间文件集中到隐藏的 `.build/`。脚本也支持通过 `CSUST_TEX_BIN` 指定 TeX 工具的 bin 目录。
+安装 TeX Live/MacTeX，需包含 ctex、fontspec、mathspec、caption/subcaption、gbt7714 等依赖。Mac 可在模板目录的终端运行 `sh compile.command`；首次下载后如需双击运行，先执行 `chmod +x compile.command`。脚本会使用 latexmk 自动处理多轮编译，生成根目录的 `main.pdf`，中间文件集中到隐藏的 `.build/`。脚本也支持通过 `CSUST_TEX_BIN` 指定 TeX 工具的 bin 目录。
 
 使用编辑器时，编译顺序为 **XeLaTeX → BibTeX → XeLaTeX → XeLaTeX**；BibTeX 的任务名为 `main`，不是 `references`。模板使用 BibTeX，不使用 Biber。
 
