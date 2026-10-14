@@ -1,0 +1,21 @@
+# Local build products
+.build/
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.xdv
+*.synctex.gz
+main.pdf
+.DS_Store
+# Licensed font files are provided by individual users
+fonts/
+*.ttf
+*.ttc
+*.otf

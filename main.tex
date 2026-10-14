@@ -1,0 +1,15 @@
+% !TEX program = xelatex
+% 正式字体版。缺少必要字体会报错，请看README.md。
+\documentclass{csustthesis}
+\input{thesis-info}
+\begin{document}
+\maketitle
+\input{chapters/abstracts}
+\csustmakecontents
+\csustmainmatter
+\include{chapters/01-introduction}
+\include{chapters/02-examples}
+\include{chapters/03-conclusion}
+\csustbibliography{references}
+\input{chapters/backmatter}
+\end{document}
