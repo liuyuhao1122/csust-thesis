@@ -1,0 +1,104 @@
+\chapter{常用排版示例}
+\section{公式与文献引用}
+正文中的行内公式，例如$E=mc^2$，保持所在段落的字号。需要编号的独立公式使用equation环境；主公式字号为五号，编号按章排列。公式出现之前的正文段落仍保持小四和1.5倍行距，不应被公式的局部设置压缩。
+\begin{equation}\label{eq:loss}
+  L(\theta)=\frac{1}{n}\sum_{i=1}^{n}\bigl(y_i-f_{\theta}(x_i)\bigr)^2.
+\end{equation}
+式\eqref{eq:loss}仅为数学排版示例。连续推导可以使用align环境，等号对齐，编号保持在右侧：
+\begin{align}
+  a&=b+c,\\
+  d&=a^2+\alpha.
+\end{align}
+普通文献引用使用上标形式\cite{knuth1984}；作为句子组成部分时，可以写“文献\inlinecite{lamport1994}介绍了文档的基本结构”。这两种引用命令分别用于不同语境，不需要手工输入引用序号。
+\section{普通三线表}
+表题置于表格上方。表内文字自动采用五号宋体，西文为Times New Roman，单倍行距；不需要在每张表中手动补写字号命令。
+\begin{table}[htbp]
+  \caption{示例实验参数}\label{tab:parameters}
+  \centering
+  \begin{tabularx}{.85\textwidth}{lXr}
+    \toprule 参数 & 说明 & 数值\\\midrule
+    $n$ & 示例样本数 & 100\\
+    $\alpha$ & 示例权重 & 0.5\\
+    $T$ & 示例迭代轮数 & 20\\\bottomrule
+  \end{tabularx}
+\end{table}
+表\ref{tab:parameters}中的数值为虚构演示数据。三线表的上下线宽为1.5磅，中间线宽为0.75磅。表格结束后，本段正文恢复小四和1.5倍行距。
+\section{插图与子图}
+下图通过LaTeX原生绘图命令生成，不依赖任何私人实验图片。总图题及子图题注采用五号宋体，西文采用Times New Roman；子图编号使用a)、b)形式。
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}[b]{.44\textwidth}
+    \centering\setlength{\unitlength}{1mm}
+    \begin{picture}(55,35)
+      \put(5,5){\vector(1,0){45}}\put(5,5){\vector(0,1){27}}
+      \put(7,8){\line(1,0){10}}\put(17,8){\line(1,1){20}}\put(37,28){\line(1,0){8}}
+    \end{picture}
+    \caption{示例变化趋势}\label{fig:trend}
+  \end{subfigure}\hfill
+  \begin{subfigure}[b]{.44\textwidth}
+    \centering\setlength{\unitlength}{1mm}
+    \begin{picture}(55,35)
+      \put(5,5){\vector(1,0){45}}\put(5,5){\vector(0,1){27}}
+      \put(12,5){\rule{4mm}{12mm}}\put(24,5){\rule{4mm}{20mm}}\put(36,5){\rule{4mm}{16mm}}
+    \end{picture}
+    \caption{示例分组比较}\label{fig:groups}
+  \end{subfigure}
+  \figurenote{说明：两幅图仅展示排版方式，不代表真实实验结果。}
+  \caption{原生绘图与子图题注示例}\label{fig:example}
+\end{figure}
+如图\ref{fig:example}所示，总图题置于图下，说明文字放在总图题之前。使用自己的PDF或PNG插图时，应使用带clip选项的includegraphics命令，防止图形文件中的越界绘制遮挡页眉。
+\section{跨页表格}
+长表格使用longtable环境，并提供重复表头和续表标记。即使源文件没有在表格前留空行，模板也会先以正文行距结束前一段，再切换表格字体。本段用于演示这一边界条件，随后给出一张跨页表。
+\begin{longtable}{r p{80mm} r}
+  \caption{跨页表格演示数据}\label{tab:long}\\
+  \toprule 序号 & 说明 & 数值\\\midrule\endfirsthead
+  \multicolumn{3}{c}{表\thetable（续）}\\
+  \toprule 序号 & 说明 & 数值\\\midrule\endhead
+  \bottomrule\endfoot
+  1 & 第1项虚构演示数据 & 2\\
+  2 & 第2项虚构演示数据 & 4\\
+  3 & 第3项虚构演示数据 & 6\\
+  4 & 第4项虚构演示数据 & 8\\
+  5 & 第5项虚构演示数据 & 10\\
+  6 & 第6项虚构演示数据 & 12\\
+  7 & 第7项虚构演示数据 & 14\\
+  8 & 第8项虚构演示数据 & 16\\
+  9 & 第9项虚构演示数据 & 18\\
+  10 & 第10项虚构演示数据 & 20\\
+  11 & 第11项虚构演示数据 & 22\\
+  12 & 第12项虚构演示数据 & 24\\
+  13 & 第13项虚构演示数据 & 26\\
+  14 & 第14项虚构演示数据 & 28\\
+  15 & 第15项虚构演示数据 & 30\\
+  16 & 第16项虚构演示数据 & 32\\
+  17 & 第17项虚构演示数据 & 34\\
+  18 & 第18项虚构演示数据 & 36\\
+  19 & 第19项虚构演示数据 & 38\\
+  20 & 第20项虚构演示数据 & 40\\
+  21 & 第21项虚构演示数据 & 42\\
+  22 & 第22项虚构演示数据 & 44\\
+  23 & 第23项虚构演示数据 & 46\\
+  24 & 第24项虚构演示数据 & 48\\
+  25 & 第25项虚构演示数据 & 50\\
+  26 & 第26项虚构演示数据 & 52\\
+  27 & 第27项虚构演示数据 & 54\\
+  28 & 第28项虚构演示数据 & 56\\
+  29 & 第29项虚构演示数据 & 58\\
+  30 & 第30项虚构演示数据 & 60\\
+  31 & 第31项虚构演示数据 & 62\\
+  32 & 第32项虚构演示数据 & 64\\
+  33 & 第33项虚构演示数据 & 66\\
+  34 & 第34项虚构演示数据 & 68\\
+  35 & 第35项虚构演示数据 & 70\\
+  36 & 第36项虚构演示数据 & 72\\
+  37 & 第37项虚构演示数据 & 74\\
+  38 & 第38项虚构演示数据 & 76\\
+  39 & 第39项虚构演示数据 & 78\\
+  40 & 第40项虚构演示数据 & 80\\
+  41 & 第41项虚构演示数据 & 82\\
+  42 & 第42项虚构演示数据 & 84\\
+  43 & 第43项虚构演示数据 & 86\\
+  44 & 第44项虚构演示数据 & 88\\
+  45 & 第45项虚构演示数据 & 90\\
+\end{longtable}
+表格结束后的正文仍为小四、1.5倍行距。表内数据仅用于演示跨页行为，使用者应替换为自己的数据，并根据实际内容设计列宽。
